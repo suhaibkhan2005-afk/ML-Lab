@@ -1,4 +1,3 @@
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
@@ -7,8 +6,8 @@ from minisom import MiniSom
 
 # ---- Step 1: Load dataset (Iris) ----
 iris = load_iris(as_frame=True)
-X = iris.data.values  # features
-y = iris.target  # labels (not used for training, but for visualization)
+X = iris.data.values  
+y = iris.target 
 
 print("Dataset shape:", X.shape)
 
@@ -17,7 +16,7 @@ scaler = MinMaxScaler()
 X_scaled = scaler.fit_transform(X)
 
 # ---- Step 3: Initialize SOM ----
-som_size = 7  # grid size (7 x 7 map)
+som_size = 7 
 
 som = MiniSom(
     x=som_size,
@@ -37,7 +36,7 @@ print("\nSOM training completed.")
 plt.figure(figsize=(8, 8))
 
 for i, x in enumerate(X_scaled):
-    w = som.winner(x)  # winning neuron for this sample
+    w = som.winner(x)  
 
     plt.text(
         w[0] + 0.5,
